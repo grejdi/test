@@ -15,5 +15,5 @@ jobs:
     steps:
       - name: test
         env:
-          BUCKET: ${{github.event.inputs.env == 'prod' && 'operations' || '${github.event.inputs.env}-operations'}}
-        run: echo "$BUCKET"
+          BUCKET: ${{github.event.inputs.env == 'prod' && 'operations' || 'dev-operations'}}
+        run: echo ${{env.BUCKET}}
