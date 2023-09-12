@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment, 'dev' or 'prod'."
+        required: true
+
+jobs:
+  deploy:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test
+        run: echo ${{github.event.inputs.env == 'dev' && '' || 'blah'}}
